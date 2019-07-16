@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 set -e
 
 # https://gist.github.com/cdown/1163649
@@ -19,5 +19,10 @@ urlencode() {
   done
 }
 
+if [ "$NOTICE_ME_TOKEN" == "" ]; then
+  echo "no NOTICE_ME_TOKEN found, please set it in this repo setting"
+  exit 1
+fi
+
 data=$(urlencode "$*")
-curl https://iiiii.li/${NOTICE_ME_TOKEN}?body=$data
+curl https://iiiii.li/${NOTICE_ME_TOKEN}?body=$data&from=GitHubAction&name=NoticeMe%20GitHub%20Action

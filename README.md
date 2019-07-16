@@ -11,8 +11,9 @@ There are one required Secrets to be set:
 An example would look like this:
 
 ```
-action "Docker Login" {
-  uses = "metrue/noticeme-github-action"
+action "notify" {
+  uses = "metrue/noticeme-github-action@master"
   secrets = ["NOTICE_ME_TOKEN"]
+  args = ["BuildNoticeMeGitHubActionDone"]
 }
 ```
